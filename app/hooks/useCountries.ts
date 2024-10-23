@@ -1,24 +1,38 @@
-import countries from 'world-countries';
+export interface IAddress {
+  value: string;
+  label: string;
+}
 
-const formattedCountries = countries.map((country) => ({
-  value: country.cca2,
-  label: country.name.common,
-  flag: country.flag,
-  latlng: country.latlng,
-  region: country.region,
-}));
+const listAddress = [
+  {
+    value: "quan1",
+    label: "Quận 1",
+  },
+  {
+    value: "quan2",
+    label: "Quận 2",
+  },
+  {
+    value: "quan3",
+    label: "Quận 3",
+  },
+  {
+    value: "quan4",
+    label: "Quận 4",
+  },
+];
 
 const useCountries = () => {
-  const getAll = () => formattedCountries;
+  const getAll = () => listAddress;
 
   const getByValue = (value: string) => {
-    return formattedCountries.find((item) => item.value === value);
-  }
+    return listAddress.find((item) => item.value === value);
+  };
 
   return {
     getAll,
-    getByValue
-  }
+    getByValue,
+  };
 };
 
 export default useCountries;
