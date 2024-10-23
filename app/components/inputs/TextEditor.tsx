@@ -1,7 +1,8 @@
-import React from "react";
+import dynamic from "next/dynamic";
 import { Controller } from "react-hook-form";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import the necessary Quill styles
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false }); // Disable SSR
 
 interface TextEditorProps {
   control: any;
